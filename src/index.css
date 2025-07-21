@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-terminal-primary: 50 255 126;  
+  --color-terminal-amber: 255 192 72;   
+  --color-terminal-bg: 30 39 46;      
+  --color-terminal-header: 44 58 71;    
+  --color-terminal-border: 75 101 132;   
+}
+
+
+[data-theme='purple'] {
+  --color-terminal-primary: 195 107 255; 
+}
+
+body { 
+  @apply bg-terminal-bg text-terminal-primary; 
+}
