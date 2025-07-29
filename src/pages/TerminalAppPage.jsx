@@ -14,14 +14,12 @@ import { Eraser } from 'lucide-react';
 const PREDEFINED_SUBJECTS = ['Análise/Projeto de Sistemas', 'Estrutura de Dados ||', 'Redes de Computadores'];
 
 const TerminalAppPage = () => {
-    // States de Arquivos e Editor
     const [allFiles, setAllFiles] = useState([]);
     const [displayedFiles, setDisplayedFiles] = useState([]);
     const [openFiles, setOpenFiles] = useState([]);
     const [activeFileId, setActiveFileId] = useState(null);
     const [unsavedChanges, setUnsavedChanges] = useState({});
 
-    // States de UI e Funcionalidades Gerais
     const [terminalOutput, setTerminalOutput] = useState('> Terminal aguardando execução de código Python...');
     const [statusMessage, setStatusMessage] = useState({ text: '', type: '' });
     const [isExecuting, setIsExecuting] = useState(false);
@@ -32,24 +30,23 @@ const TerminalAppPage = () => {
     const [showOnlyFavorites, setShowOnlyFavorites] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     
-    // States para Modais de Ação (Arquivos)
+
     const [itemToDelete, setItemToDelete] = useState(null);
     const [fileToEdit, setFileToEdit] = useState(null);
     const [fileToMove, setFileToMove] = useState(null);
     
-    // States para Pastas e Modais de Ação (Pastas)
+
     const [folders, setFolders] = useState([]);
     const [currentFolderId, setCurrentFolderId] = useState(null);
     const [isCreateFolderModalOpen, setIsCreateFolderModalOpen] = useState(false);
     const [folderToDelete, setFolderToDelete] = useState(null);
     const [folderToEdit, setFolderToEdit] = useState(null);
 
-    // Refs e Contexto
+
     const outputRef = useRef(null);
     const { logout, user } = useContext(AuthContext);
     const activeFile = openFiles.find(f => f.id === activeFileId);
 
-    // --- EFEITOS (SIDE EFFECTS) ---
 
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme);
@@ -106,7 +103,6 @@ const TerminalAppPage = () => {
     useEffect(() => { if (statusMessage.text) { const timer = setTimeout(() => setStatusMessage({ text: '', type: '' }), 4000); return () => clearTimeout(timer); } }, [statusMessage]);
     useEffect(() => { localStorage.setItem('activeTab', activeTab); }, [activeTab]);
 
-    // --- FUNÇÕES DE MANIPULAÇÃO (HANDLERS) ---
 
     const handleToggleTheme = () => { setTheme(prevTheme => (prevTheme === 'green' ? 'purple' : 'green')); };
 
@@ -165,7 +161,6 @@ const TerminalAppPage = () => {
         }
     }, [activeFile, activeFileId, user]);
 
-    // O useEffect do atalho Ctrl+S foi movido para DEPOIS da declaração de handleSave
     useEffect(() => {
         const handleKeyDown = (event) => { if (event.ctrlKey && event.key === 's') { event.preventDefault(); handleSave(); } };
         window.addEventListener('keydown', handleKeyDown);
@@ -297,8 +292,6 @@ const TerminalAppPage = () => {
         }
     }, [activeFile]);
 
-
-    // --- RENDERIZAÇÃO DO COMPONENTE ---
     return (
         <div className="min-h-screen bg-terminal-bg font-mono flex flex-col">
             {itemToDelete && (<ConfirmationModal message={`Tem certeza que deseja deletar o arquivo "${itemToDelete.name}"?`} onConfirm={confirmDeleteItem} onCancel={() => setItemToDelete(null)} />)}
