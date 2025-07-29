@@ -4,11 +4,20 @@
 
 StudyTerminal é uma aplicação web de código aberto projetada para ser o ambiente definitivo para estudantes de tecnologia organizarem suas anotações, códigos e projetos de estudo. Combinando a agilidade de um terminal com a robustez de um editor de código moderno, a plataforma oferece um espaço centralizado, seguro e acessível de qualquer lugar.
 
-<img width="803" height="810" alt="image" src="https://github.com/user-attachments/assets/9455af5c-ebb7-4f6e-a1d5-9b4bd85267ab" />
-<img width="789" height="662" alt="image" src="https://github.com/user-attachments/assets/2c13ba39-3db1-4a15-a9b6-04521135ce5d" />
-<img width="1875" height="848" alt="image" src="https://github.com/user-attachments/assets/80eb4d7c-846e-462e-8b5a-cf01e76b84d8" />
-<img width="1870" height="848" alt="image" src="https://github.com/user-attachments/assets/eff84cad-276d-4793-afd0-327c943fc6e3" />
-<img width="1880" height="850" alt="image" src="https://github.com/user-attachments/assets/8dfda365-ab4b-46ea-87ac-70045cf69fc2" />
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9455af5c-ebb7-4f6e-a1d5-9b4bd85267ab" width="400" />
+  <img src="https://github.com/user-attachments/assets/2c13ba39-3db1-4a15-a9b6-04521135ce5d" width="400" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/80eb4d7c-846e-462e-8b5a-cf01e76b84d8" width="400" />
+  <img src="https://github.com/user-attachments/assets/eff84cad-276d-4793-afd0-327c943fc6e3" width="400" />
+</p>
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/8dfda365-ab4b-46ea-87ac-70045cf69fc2" width="400" />
+</p>
+
 
 🔗 **Acesse a versão live:** 
 
