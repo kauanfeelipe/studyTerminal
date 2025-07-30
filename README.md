@@ -62,7 +62,7 @@ Para clonar e executar este projeto na sua máquina, siga os passos abaixo:
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/seu-usuario/study-terminal.git](https://github.com/seu-usuario/study-terminal.git)
+    git clone [https://github.com/kauanfeelipe/studyterminal.git]
     cd study-terminal/frontend
     ```
 
