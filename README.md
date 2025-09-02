@@ -2,7 +2,8 @@
 
 > **Uma plataforma web inovadora para aprendizado e execução de código Python com interface terminal interativa.**
 
-![StudyTerminal Interface](./public/icon-terminal.png)
+<img width="1882" height="851" alt="Captura de tela 2025-09-02 114118" src="https://github.com/user-attachments/assets/af179b22-d19e-45c8-916f-44f6f057c870" />
+
 
 ## 📋 Índice
 
