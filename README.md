@@ -48,7 +48,7 @@ export const ALLOWED_USERS = [
 
 2. **Cria as contas:** Firebase Console → Authentication → Add User
 3. **Deploy:** `npm run build && firebase deploy`
-4. **Profit:** Mandem o link e codem juntos! 🎉
+
 
 ## 🛠️ Stack Técnica
 
@@ -58,7 +58,7 @@ export const ALLOWED_USERS = [
 **Auth:** Firebase Authentication  
 **Deploy:** Firebase Hosting (manual por enquanto)  
 
-Escolhi Firebase porque é grátis pra projetos pequenos e cuida da infraestrutura. React porque é o que mais uso. Python porque é o que a galera mais estuda na facul.
+Escolhi Firebase porque é grátis pra projetos pequenos e cuida da infraestrutura. React porque é o que mais uso ultimamente no front-end. Python porque é o que a galera mais estuda na faculdade.
 
 ## 🚀 Como Rodar Localmente
 
@@ -70,7 +70,6 @@ npm install
 
 # Configura Firebase (cria um projeto no console do Firebase)
 # Crie um .env (não tem .env.example ainda)
-touch .env
 # Edita o .env com suas credenciais
 
 # Roda local
@@ -109,7 +108,7 @@ functions/
 
 ### Principais Componentes
 - **AuthContext:** Valida whitelist no login/registro
-- **TerminalAppPage:** 365 linhas de terror organizado, mas funciona
+- **TerminalAppPage:** 365 linhas de terror organizado
 - **Monaco Editor:** Syntax highlight Python/Markdown + tema Dracula  
 - **Firestore:** Armazenamento de arquivos (logs opcionais no backend)
 
@@ -125,28 +124,15 @@ firebase deploy
 
 ## 🎯 Ideal Para
 
-✅ **Portfólio de dev** - mostra skills de fullstack + segurança  
-✅ **Estudos em grupo** - 2-5 pessoas, perfeito pra faculdade  
-✅ **Prototipagem rápida** - testa algoritmos sem setup  
-✅ **Projetos acadêmicos** - prof vai achar muito profissa  
+✅ **Portfólio de dev** -
+✅ **Estudos em grupo** - 
+✅ **Prototipagem rápida** - 
+✅ **Projetos acadêmicos** -
 
-## 💸 Custos (Spoiler: quase zero)
 
-- **Firebase grátis até:** 50k reads, 20k writes, 10GB storage
-- **Pra 4 amigos:** ~$0-5/mês 
-- **Domínio custom:** ~$10/ano (opcional)
 
 ---
 
 ## 🤝 Contribuindo
 
 Achou um bug? Tem uma ideia? Abre uma issue ou manda um PR!
-
-Regras simples:
-- Código limpo e comentado
-- Teste antes de enviar  
-- Mantenha a vibe de projeto estudantil
-
----
-
-**Made with ☕ and a lot of StackOverflow**
