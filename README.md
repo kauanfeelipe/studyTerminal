@@ -1,232 +1,152 @@
-# 🚀 StudyTerminal
+# 🎓 StudyTerminal
 
-> **Uma plataforma web inovadora para aprendizado e execução de código Python com interface terminal interativa.**
+> **Terminal web para execução segura de Python entre amigos. Porque estudar programação sozinho é chato.**
 
 <img width="1882" height="851" alt="Captura de tela 2025-09-02 114118" src="https://github.com/user-attachments/assets/af179b22-d19e-45c8-916f-44f6f057c870" />
 
+## 🤔 O que é isso?
 
-## 📋 Índice
+É basicamente um VS Code web minimalista com execução de Python, mas pensado para ser usado entre amigos que estudam programação. Tem visual de terminal porque fica mais legal e dá aquela vibe hacker 😎
 
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Funcionalidades](#-funcionalidades)
-- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Instalação e Configuração](#-instalação-e-configuração)
-- [Como Usar](#-como-usar)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
+**Por que fiz?** Porque ficar mandando código pelo WhatsApp ou Discord é um saco, e queria algo simples para testar algoritmos com os colegas sem instalar nada.
 
 
 
-## 🎯 Sobre o Projeto
+## ✨ Features
 
-O **StudyTerminal** é uma aplicação web educacional que proporciona um ambiente de desenvolvimento Python integrado com interface terminal. Desenvolvida especificamente para estudantes de programação, oferece um ambiente seguro e intuitivo para praticar código Python, organizar projetos por disciplinas e visualizar resultados em tempo real.
+**🔒 Acesso Restrito:** Só quem você autorizar consegue entrar (whitelist de emails)  
+**🐍 Python Básico:** Executa código com validações regex (não é sandbox real)  
+**📁 Organização:** Pastas, disciplinas, favoritos - funciona bem  
+**⚡ Monaco Editor:** Syntax highlight + 2 temas customizados  
+**📱 Responsivo:** Funciona no mobile (mas é melhor no desktop)  
+**☁️ Na Nuvem:** Firebase salva tudo automaticamente  
 
-### ✨ Diferenciais
+## 🔐 Como Funciona a Segurança
 
-- **Interface Terminal Autêntica**: Design inspirado em terminais Unix com temas personalizáveis
-- **Editor de Código Avançado**: Monaco Editor com syntax highlighting e autocomplete
-- **Organização Acadêmica**: Sistema de pastas e categorização por disciplinas
-- **Execução Segura**: Ambiente controlado para execução de código Python
-- **Sincronização Cloud**: Todos os projetos salvos automaticamente no Firebase
+### Acesso Controlado
+- **Whitelist de emails** - só quem você liberar consegue acessar
+- **Registro desabilitado** - ninguém cria conta sem você saber
+- **Rate limiting amigável** - 15 execuções/min, 200/hora (suficiente pra estudar)
 
-## 🚀 Funcionalidades
+### Execução Segura de Python  
+- **Validação por regex** - bloqueia imports perigosos (os, sys, eval, etc.)
+- **Ambiente restrito** - PATH e PYTHONPATH limitados
+- **Timeout inteligente** - 45 segundos por execução
+- **Logs estruturados** - você vê tudo que rola
 
-### 📝 Editor de Código
-- **Editor Monaco** com syntax highlighting para Python e Markdown
-- **Suporte a múltiplos arquivos** com sistema de abas
-- **Preview em tempo real** para arquivos Markdown
-- **Autocompletar** e **validação de sintaxe**
-- **Temas personalizáveis** (Verde Terminal / Roxo)
+> ⚠️ **Honestidade:** Não é um sandbox 100% à prova de hacker. É seguro pra uso entre amigos que não vão tentar quebrar o sistema de propósito.
 
-### 🗂️ Gerenciamento de Arquivos
-- **Sistema de pastas** para organização hierárquica
-- **Categorização por disciplinas** (Análise de Sistemas, Estrutura de Dados, Redes)
-- **Sistema de favoritos** para acesso rápido
-- **Busca avançada** por nome, conteúdo e categoria
-- **Download de arquivos** para backup local
-
-### ⚡ Terminal Integrado
-- **Execução de código Python** em ambiente controlado
-- **Output em tempo real** com formatação preservada
-- **Histórico de execuções** persistente
-- **Feedback visual** de status (sucesso/erro)
-
-### 🔐 Autenticação e Segurança
-- **Firebase Authentication** com email/senha
-- **Sessões seguras** com JWT tokens
-- **Isolamento de usuários** - cada usuário acessa apenas seus arquivos
-- **Rotas protegidas** com validação de autenticação
-
-## 🛠️ Tecnologias Utilizadas
-
-### Frontend
-```json
-{
-  "framework": "React 19.1.0",
-  "bundler": "Vite 5.2.0", 
-  "styling": "TailwindCSS 3.4.3",
-  "editor": "Monaco Editor 4.7.0",
-  "routing": "React Router DOM 7.7.0",
-  "http": "Axios 1.10.0",
-  "markdown": "React Markdown 10.1.0",
-  "icons": "Lucide React 0.525.0"
-}
+### Setup para Amigos
+1. **Edita a lista:** `src/config/allowedUsers.js` 
+```javascript
+export const ALLOWED_USERS = [
+  'kauan@gmail.com',     // você  
+  'amigo1@gmail.com',    // seus brothers
+  'colega@facul.com',    // galera da facul
+];
 ```
 
-### Backend
-```json
-{
-  "runtime": "Python 3.13",
-  "framework": "Firebase Functions",
-  "auth": "Firebase Authentication", 
-  "database": "Cloud Firestore",
-  "hosting": "Firebase Hosting"
-}
-```
+2. **Cria as contas:** Firebase Console → Authentication → Add User
+3. **Deploy:** `npm run build && firebase deploy`
+4. **Profit:** Mandem o link e codem juntos! 🎉
 
-### DevOps e Ferramentas
-- **ESLint** para qualidade de código
-- **PostCSS** para processamento CSS
-- **Firebase CLI** para deploy
-- **Git** para controle de versão
+## 🛠️ Stack Técnica
 
+**Frontend:** React 19 + Vite + TailwindCSS + Monaco Editor  
+**Backend:** Firebase Functions (Python 3.13)  
+**Database:** Firestore  
+**Auth:** Firebase Authentication  
+**Deploy:** Firebase Hosting (manual por enquanto)  
 
+Escolhi Firebase porque é grátis pra projetos pequenos e cuida da infraestrutura. React porque é o que mais uso. Python porque é o que a galera mais estuda na facul.
 
-### Fluxo de Dados
-1. **Autenticação**: Usuario faz login via Firebase Auth
-2. **Autorização**: JWT token validado em todas as requests
-3. **Armazenamento**: Arquivos salvos no Firestore com isolamento por usuário
-4. **Execução**: Código enviado para Firebase Function que executa em ambiente Python
-5. **Resultado**: Output retornado ao cliente em tempo real
+## 🚀 Como Rodar Localmente
 
-## 📦 Instalação e Configuração
-
-### Pré-requisitos
-- **Node.js** (versão 18 ou superior)
-- **Python** 3.11+ 
-- **Firebase CLI**
-- **Git**
-
-### 🔧 Configuração Local
-
-1. **Clone o repositório**
 ```bash
+# Clone e instala
 git clone https://github.com/seu-usuario/study-terminal-app.git
 cd study-terminal-app/frontend
-```
-
-2. **Instale as dependências**
-```bash
 npm install
-```
 
-3. **Configure as variáveis de ambiente**
-```bash
-# Crie o arquivo .env na pasta frontend
-cp .env.example .env
-```
+# Configura Firebase (cria um projeto no console do Firebase)
+# Crie um .env (não tem .env.example ainda)
+touch .env
+# Edita o .env com suas credenciais
 
-Preencha o `.env` com suas credenciais Firebase:
-```env
-VITE_API_KEY=sua_api_key_firebase
-VITE_AUTH_DOMAIN=seu_projeto.firebaseapp.com
-VITE_PROJECT_ID=seu_projeto_id
-VITE_STORAGE_BUCKET=seu_projeto.appspot.com
-VITE_MESSAGING_SENDER_ID=123456789
-VITE_APP_ID=1:123456789:web:abcdef
-VITE_API_BASE_URL=https://sua_funcao_firebase.cloudfunctions.net/execute_code
-```
-
-4. **Configure o Firebase Functions**
-```bash
-cd functions
-python -m venv venv
-source venv/bin/activate  # No Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-5. **Execute em desenvolvimento**
-```bash
-# Terminal 1 - Frontend
+# Roda local
 npm run dev
 
-# Terminal 2 - Functions (opcional, para teste local)
+# Para testar functions local (opcional)
+cd functions
+pip install -r requirements.txt
 firebase emulators:start --only functions
 ```
 
-### 🚀 Deploy para Produção
+### Variáveis de Ambiente (.env)
+```env
+VITE_API_KEY=sua_firebase_key
+VITE_AUTH_DOMAIN=seu-projeto.firebaseapp.com  
+VITE_PROJECT_ID=seu-projeto-id
+VITE_STORAGE_BUCKET=seu-projeto.appspot.com
+VITE_MESSAGING_SENDER_ID=123456789
+VITE_APP_ID=1:123456789:web:abcdef
+VITE_API_BASE_URL=https://sua-function.cloudfunctions.net/execute_code
+```
 
-1. **Build do frontend**
+## 💻 Para Desenvolvedores
+
+### Estrutura que Importa
+```
+src/
+├── config/allowedUsers.js    # 🔒 Lista de quem pode entrar
+├── context/AuthContext.jsx   # 🔐 Gerencia autenticação + whitelist  
+├── pages/RegisterPage.jsx    # 🚫 Registro desabilitado por padrão
+└── components/terminal/      # 🎨 UI do terminal
+
+functions/
+└── main.py                   # 🐍 Execução Python + logs + rate limit
+```
+
+### Principais Componentes
+- **AuthContext:** Valida whitelist no login/registro
+- **TerminalAppPage:** 365 linhas de terror organizado, mas funciona
+- **Monaco Editor:** Syntax highlight Python/Markdown + tema Dracula  
+- **Firestore:** Armazenamento de arquivos (logs opcionais no backend)
+
+### Deploy Automático
 ```bash
+# Depois de configurar tudo
 npm run build
-```
-
-2. **Deploy para Firebase**
-```bash
 firebase deploy
+
+# Por enquanto é deploy manual, mas funciona bem
+# TODO: configurar GitHub Actions depois
 ```
 
-## 💡 Como Usar
+## 🎯 Ideal Para
 
-### 1. **Primeiro Acesso**
-- Acesse a aplicação e clique em "Registrar"
-- Crie sua conta com email e senha
-- Faça login para acessar o terminal
+✅ **Portfólio de dev** - mostra skills de fullstack + segurança  
+✅ **Estudos em grupo** - 2-5 pessoas, perfeito pra faculdade  
+✅ **Prototipagem rápida** - testa algoritmos sem setup  
+✅ **Projetos acadêmicos** - prof vai achar muito profissa  
 
-### 2. **Criando seu Primeiro Arquivo**
-- Clique no botão "+" na navegação
-- Selecione "Novo Arquivo"
-- Preencha nome, disciplina e tipo (Python/Texto)
-- Comece a programar!
+## 💸 Custos (Spoiler: quase zero)
 
-### 3. **Organizando com Pastas**
-- Clique no botão "+" e selecione "Nova Pasta"
-- Nomeie sua pasta (ex: "Algoritmos", "Projetos")
-- Mova arquivos para pastas usando o menu de contexto
+- **Firebase grátis até:** 50k reads, 20k writes, 10GB storage
+- **Pra 4 amigos:** ~$0-5/mês 
+- **Domínio custom:** ~$10/ano (opcional)
 
-### 4. **Executando Código Python**
-- Escreva seu código Python no editor
-- Clique no botão "▶ Executar" ou use Ctrl+E
-- Veja o resultado no terminal integrado
+---
 
-### 5. **Busca e Filtros**
-- Use a aba "Files" para navegar em seus arquivos
-- Filtre por disciplina, tipo ou palavra-chave
-- Ative "Mostrar apenas favoritos" para acesso rápido
+## 🤝 Contribuindo
 
-## 📁 Estrutura do Projeto
+Achou um bug? Tem uma ideia? Abre uma issue ou manda um PR!
 
-```
-study-terminal-app/
-├── frontend/
-│   ├── src/
-│   │   ├── components/          # Componentes React
-│   │   │   ├── terminal/        # Componentes específicos do terminal
-│   │   │   └── PrivateRoute.jsx # Proteção de rotas
-│   │   ├── context/             # Context APIs
-│   │   │   └── AuthContext.jsx  # Gerenciamento de autenticação
-│   │   ├── pages/               # Páginas da aplicação
-│   │   │   ├── LoginPage.jsx
-│   │   │   ├── RegisterPage.jsx
-│   │   │   └── TerminalAppPage.jsx
-│   │   ├── services/            # Serviços e APIs
-│   │   │   ├── api.js           # Cliente HTTP
-│   │   │   └── firebase.js      # Configuração Firebase
-│   │   ├── themes/              # Temas do editor
-│   │   └── assets/              # Recursos estáticos
-│   ├── functions/               # Firebase Functions
-│   │   ├── main.py             # Função de execução Python
-│   │   └── requirements.txt    # Dependências Python
-│   ├── public/                 # Arquivos públicos
-│   ├── dist/                   # Build de produção
-│   └── firebase.json           # Configuração Firebase
-```
+Regras simples:
+- Código limpo e comentado
+- Teste antes de enviar  
+- Mantenha a vibe de projeto estudantil
 
+---
 
-
-### Documentação Técnica
-- [Firebase Documentation](https://firebase.google.com/docs)
-- [React Documentation](https://react.dev)
-- [Monaco Editor API](https://microsoft.github.io/monaco-editor/)
-- [TailwindCSS Guide](https://tailwindcss.com/docs)
-
-
+**Made with ☕ and a lot of StackOverflow**
