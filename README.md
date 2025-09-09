@@ -1,14 +1,12 @@
 # 🎓 StudyTerminal
 
-> **Terminal web para execução segura de Python entre amigos. Porque estudar programação sozinho é chato.**
+> **Terminal web para execução segura de Python entre amigos.**
 
 <img width="1882" height="851" alt="Captura de tela 2025-09-02 114118" src="https://github.com/user-attachments/assets/af179b22-d19e-45c8-916f-44f6f057c870" />
 
 ## 🤔 O que é isso?
 
-É basicamente um VS Code web minimalista com execução de Python, mas pensado para ser usado entre amigos que estudam programação. Tem visual de terminal porque fica mais legal e dá aquela vibe hacker 😎
-
-**Por que fiz?** Porque ficar mandando código pelo WhatsApp ou Discord é um saco, e queria algo simples para testar algoritmos com os colegas sem instalar nada.
+É basicamente um VS Code web minimalista com execução de Python, mas pensado para ser usado entre amigos que estudam programação.
 
 
 
@@ -122,17 +120,5 @@ firebase deploy
 # TODO: configurar GitHub Actions depois
 ```
 
-## 🎯 Ideal Para
-
-✅ **Portfólio de dev** -
-✅ **Estudos em grupo** - 
-✅ **Prototipagem rápida** - 
-✅ **Projetos acadêmicos** -
 
 
-
----
-
-## 🤝 Contribuindo
-
-Achou um bug? Tem uma ideia? Abre uma issue ou manda um PR!
